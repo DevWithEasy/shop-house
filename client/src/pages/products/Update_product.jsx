@@ -22,7 +22,7 @@ const Update_product = () => {
     const getData = async () => {
         setLoading(true)
         try {
-            const res = await axios.get(`${baseUrl}/api/category/`)
+            const res = await axios.get(`${baseUrl}/api/brand/`)
             if (res.data.status === 200) {
                 setCategories(res.data.data)
                 setLoading(false)
@@ -53,7 +53,7 @@ const Update_product = () => {
                     toast,
                     res.data.message
                 )
-                navigate('/products')
+                navigate('/admin/products')
             }
         } catch (error) {
             setUpdating(false)
@@ -76,13 +76,45 @@ const Update_product = () => {
                 onSubmit={(e) => updateProduct(e)}
                 className="w-1/2 mx-auto p-4 space-y-2 bg-white rounded shadow"
             >
-                <h1 className='text-center text-xl'>Update Product</h1>
                 <div className='w-full space-y-2'>
                     <label htmlFor="">Name :</label>
                     <input
                         type='text'
                         name='name'
-                        value={value.name}
+                        value={value?.name}
+                        onChange={(e) => handleChange(e, value, setValue)}
+                        className='w-full p-2 rounded-md border border-gray-300 focus:outline-sky-500'
+                    />
+                </div>
+                <div className='w-full space-y-2'>
+                    <label htmlFor="">Category :</label>
+                    <select
+                        name='brand'
+                        value={value.brand}
+                        onChange={(e) => handleChange(e, value, setValue)}
+                        className='w-full p-2 rounded-md border border-gray-300 focus:outline-sky-500'
+                    >
+                        {
+                            categories.map((brand) => <option key={brand._id} value={brand._id}>{brand.name}</option>)
+                        }
+                    </select>
+                </div>
+                <div className='w-full space-y-2'>
+                    <label htmlFor="">Model :</label>
+                    <input
+                        type='text'
+                        name='model'
+                        value={value?.model}
+                        onChange={(e) => handleChange(e, value, setValue)}
+                        className='w-full p-2 rounded-md border border-gray-300 focus:outline-sky-500'
+                    />
+                </div>
+                <div className='w-full space-y-2'>
+                    <label htmlFor="">Size :</label>
+                    <input
+                        type='text'
+                        name='name'
+                        value={value?.size}
                         onChange={(e) => handleChange(e, value, setValue)}
                         className='w-full p-2 rounded-md border border-gray-300 focus:outline-sky-500'
                     />
@@ -107,19 +139,6 @@ const Update_product = () => {
                         className='w-full p-2 rounded-md border border-gray-300 focus:outline-sky-500'
                         disabled
                     />
-                </div>
-                <div className='w-full space-y-2'>
-                    <label htmlFor="">Category :</label>
-                    <select
-                        name='category'
-                        value={value.category}
-                        onChange={(e) => handleChange(e, value, setValue)}
-                        className='w-full p-2 rounded-md border border-gray-300 focus:outline-sky-500'
-                    >
-                        {
-                            categories.map((category) => <option key={category._id} value={category._id}>{category.name}</option>)
-                        }
-                    </select>
                 </div>
                 <button
                     className='px-6 py-2 bg-sky-500 text-white rounded'

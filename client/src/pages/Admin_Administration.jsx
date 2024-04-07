@@ -120,7 +120,7 @@ const Admin_Administration = () => {
         >
             <Heading>Administration</Heading>
             <div
-                className='grid grid-cols-3 gap-4'
+                className='grid md:grid-cols-3 gap-4'
             >
                 {
                     adminData.map((d, i) =>

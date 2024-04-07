@@ -17,9 +17,6 @@ import Update_user from './pages/users/Update_user'
 import Purchases from './pages/purchases/Purchases'
 import Protected from './pages/Protected'
 import LayoutAdmin from './pages/LayoutAdmin'
-import Categories from './pages/categories/Categories'
-import Update_category from './pages/categories/Update_category'
-import New_category from './pages/categories/New_category'
 import PrintBarCode from './pages/products/PrintBarCode'
 import New_Invoice from './pages/invoices/New_Invoice'
 import Products_Home from './pages/products/Products_Home'
@@ -29,6 +26,9 @@ import Admin_User from './pages/Admin_User'
 import Admin_Administration from './pages/Admin_Administration'
 import AdminDashboard from './pages/Dashboard_Admin'
 import Users from './pages/users/Users'
+import New_Brand from './pages/brands/New_brand'
+import Brands from './pages/brands/Brands'
+import Update_Brand from './pages/brands/Update_category'
 
 function App() {
   const routes= useRoutes([
@@ -171,23 +171,23 @@ function App() {
       path : '/admin/brand/new',
       element : <Protected>
       <LayoutAdmin>
-        <New_category/>
+        <New_Brand/>
       </LayoutAdmin>
     </Protected>
     },
     {
-      path : '/admin/categories',
+      path : '/admin/brands',
       element : <Protected>
       <LayoutAdmin>
-        <Categories/>
+        <Brands/>
       </LayoutAdmin>
     </Protected>
     },
     {
-      path : '/admin/category/:id',
+      path : '/admin/brand/:id',
       element : <Protected>
       <LayoutAdmin>
-        <Update_category/>
+        <Update_Brand/>
       </LayoutAdmin>
     </Protected>
     },

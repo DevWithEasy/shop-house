@@ -10,21 +10,27 @@ const ProductListItem = ({product}) => {
     return (
         <tr className={`bg-white border-b ${product.quantity === 0 ? 'text-red-500' :''}`}>
             <th scope="row" className="px-2 py-2 font-medium whitespace-nowrap">
-                {product.name}
+                {product?.name}
             </th>
             <td className="px-6 py-2 text-center">
-                {product?.category?.name}
+                {product?.brand?.name}
             </td>
             <td className="px-6 py-2 text-center">
-                {product.price}
+                {product?.model}
             </td>
             <td className="px-6 py-2 text-center">
-                {product.quantity}
+                {product?.size}
+            </td>
+            <td className="px-6 py-2 text-center">
+                {product?.price}
+            </td>
+            <td className="px-6 py-2 text-center">
+                {product?.quantity}
             </td>
             <td className="px-6 py-2 flex justify-center items-center space-x-2">
                 <button 
                     onClick={()=>{
-                        navigate(`/product/${product._id}`)
+                        navigate(`/admin/product/${product?._id}`)
                     }} 
                     className='p-1.5 bg-green-400 text-white rounded-md'
                 >
@@ -39,7 +45,7 @@ const ProductListItem = ({product}) => {
                     <MdDelete/>
                 </button>
                 {remove && <Delete_data {...{
-                    id : product._id,
+                    id : product?._id,
                     path : 'product',
                     remove,
                     setRemove

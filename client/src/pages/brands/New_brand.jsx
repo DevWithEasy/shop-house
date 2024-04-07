@@ -10,7 +10,7 @@ import baseUrl from '../../utils/baseUrl';
 import handleChange from '../../utils/handleChange';
 import toast_alert from '../../utils/toast_alert';
 
-const New_category = () => {
+const New_Brand = () => {
     const toast = useToast()
     const navigate = useNavigate()
     const [loading,setLoading] = useState(false)
@@ -28,7 +28,7 @@ const New_category = () => {
       }
       try {
           setLoading(true)
-          const res = await axios.post(`${baseUrl}/api/category/create`,value,{
+          const res = await axios.post(`${baseUrl}/api/brand/create`,value,{
               headers: {
                   authorization : localStorage.getItem('token')
               }
@@ -39,7 +39,7 @@ const New_category = () => {
                   toast,
                   res.data.message
               )
-              navigate('/categories')
+              navigate('/admin/brands')
           }
           
       } catch (error) {
@@ -79,4 +79,4 @@ const New_category = () => {
   )
 };
 
-export default New_category;
+export default New_Brand;

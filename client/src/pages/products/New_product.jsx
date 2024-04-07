@@ -29,7 +29,7 @@ const New_product = () => {
 
     const createProduct = async (e) => {
         e.preventDefault()
-        if (!value.name || !value.category || !value.price) {
+        if (!value.name || !value.brand || !value.model || !value.size) {
             return toast_alert(
                 toast,
                 'Please required all field.',
@@ -64,7 +64,7 @@ const New_product = () => {
 
     const getData = async () => {
         try {
-            const res = await axios.get(`${baseUrl}/api/category/`)
+            const res = await axios.get(`${baseUrl}/api/brand/`)
             setCategories(res.data.data)
         } catch (error) {
             console.log(error)
@@ -134,7 +134,7 @@ const New_product = () => {
                         <input
                             type='text'
                             name='size'
-                            value={value.price}
+                            value={value.size}
                             onChange={(e) => handleChange(e, value, setValue)}
                             className='w-full p-2 rounded-md border border-gray-300 focus:outline-sky-500'
                         />

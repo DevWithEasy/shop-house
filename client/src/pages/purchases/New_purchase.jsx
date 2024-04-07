@@ -44,12 +44,12 @@ const New_purchase = () => {
 
     const handleSearch = async (query) => {
         setSearch(query)
-        if (query.length < 3) return
+        if (query.length < 2) return
 
         try {
-            const res = await axios.get(`${baseUrl}/api/product/search?q=${search}`,{
-                headers : {
-                    authorization : localStorage.getItem('token')
+            const res = await axios.get(`${baseUrl}/api/product/search?q=${search}`, {
+                headers: {
+                    authorization: localStorage.getItem('token')
                 }
             })
 
@@ -58,12 +58,12 @@ const New_purchase = () => {
                 setIsSelect(!isSelect)
             }
 
-            setTimeout(()=>{
+            setTimeout(() => {
                 if (selectRef.current) {
                     selectRef.current.focus();
                 }
-            },200)
-            
+            }, 200)
+
         } catch (error) {
             console.log(error)
         }
@@ -258,13 +258,17 @@ const New_purchase = () => {
                                 Add list
                             </button>
                             <button
-                                onClick={() => cancel()}
-                                className='px-4 py-2 bg-gray-500 text-white rounded-md'
-                            >
-                                Cancel
-                            </button>
-
+                            type='button'
+                            onClick={() => cancel()}
+                            className='px-4 py-2 bg-red-500 text-white rounded-md'
+                        >
+                            Clear
+                        </button>
                         </div>
+                    </form>
+                    <div
+                        className='mt-5'
+                    >
                         <div
                             className='flex items-center space-x-1'
                         >
@@ -311,7 +315,7 @@ const New_purchase = () => {
                                 </button>
                             </div>
                         </div>}
-                    </form>
+                    </div>
                     {products.length > 0 &&
                         <div
                             className='mt-5 mb-2 flex justify-center'
@@ -374,7 +378,7 @@ const New_purchase = () => {
                             </tbody>
                         </table>
                     </div>
-                    
+
                 </div>
 
             </div>

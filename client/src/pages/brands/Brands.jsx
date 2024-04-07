@@ -4,20 +4,18 @@ import { MdDelete, MdEditSquare } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import Delete_data from '../../components/Delete_data';
 import Heading from '../../components/Heading';
-import Search from '../../components/Search';
 import useUserStore from '../../store/userStore';
-import api_url from '../../utils/api_url';
 import baseUrl from '../../utils/baseUrl';
 
 
-const Categories = () => {
+const Brands = () => {
     const navigate = useNavigate()
     const {addCategoties,categories} = useUserStore()
     const [remove,setRemove] = useState(false)
     const [query,setQuery] = useState('')
     const getCategories = async() =>{
         try {
-            const res = await axios.get(`${baseUrl}/api/category`)
+            const res = await axios.get(`${baseUrl}/api/brand`)
             if(res.status === 200){
                 addCategoties(res.data.data)
             }
@@ -33,7 +31,7 @@ const Categories = () => {
         <div
             className='p-2'
         >
-            <Heading>Categories</Heading>
+            <Heading>Brands</Heading>
             <input
                 type="search"
                 onChange={(e) => setQuery(e.target.value.toLowerCase())}
@@ -57,16 +55,16 @@ const Categories = () => {
                     </thead>
                     <tbody>
                         {
-                            categories && categories.filter(category=>category.name.toLowerCase().includes(query)).map((category,i)=><tr 
-                                    key={category._id}
+                            categories && categories.filter(brand=>brand.name.toLowerCase().includes(query)).map((brand,i)=><tr 
+                                    key={brand._id}
                                     className='bg-white cursor-pointer border-b'
                                 >
                                 <td className="px-6 py-3 text-center">{i+1}</td>
-                                <td className="px-6 py-3 text-center">{category?.name}</td>
+                                <td className="px-6 py-3 text-center">{brand?.name}</td>
                                 <td className="px-6 py-3 text-center space-x-2">
                                     <button 
                                         onClick={()=>{
-                                            navigate(`/category/${category._id}`)
+                                            navigate(`/admin/brand/${brand._id}`)
                                         }}
                                         className='p-1.5 bg-green-400 text-white rounded-md'
                                     >
@@ -81,8 +79,8 @@ const Categories = () => {
                                         <MdDelete/>
                                     </button>
                                     {remove && <Delete_data {...{
-                                        id : company._id, 
-                                        path : 'category',
+                                        id : brand._id, 
+                                        path : 'brand',
                                         remove, 
                                         setRemove
                                     }}/>}
@@ -96,4 +94,4 @@ const Categories = () => {
     );
 };
 
-export default Categories;
+export default Brands;

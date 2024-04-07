@@ -1,13 +1,11 @@
 import React from 'react';
 import { AiOutlineHome } from 'react-icons/ai';
-import { BiLogInCircle, BiLogOutCircle } from 'react-icons/bi';
-import { MdOutlineAdminPanelSettings } from 'react-icons/md';
+import { BiLogOutCircle } from 'react-icons/bi';
 import { RiProductHuntLine } from 'react-icons/ri';
 import { RxDashboard } from 'react-icons/rx';
 import { TbFileInvoice } from 'react-icons/tb';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import useUserStore from '../store/userStore';
-import Header from '../components/Header'
 
 const Sidebar = () => {
     const {isAuth,user,removeUser} = useUserStore()
@@ -42,7 +40,7 @@ const Sidebar = () => {
     ]
 
     return (
-        <div className='relative h-screen sm:w-2/12 px-2 border-r overflow-y-auto'>
+        <div className='relative h-screen hidden md:block md:w-2/12 px-2 border-r overflow-y-auto'>
             <Link 
                 to='/' 
                 className='flex justify-center items-center w-16 h-16 sm:w-20 sm:h-20 mx-auto my-3 bg-blue-500 text-white rounded-full'>

@@ -1,4 +1,4 @@
-export default function Add_product_invoice({ findProduct, name, price, quantity, setQuantity, addProduct, handleCancel }) {
+export default function Add_product_invoice({ findProduct, name, price, quantity, setQuantity,salePrice,setSalePrice, addProduct, handleCancel }) {
 
   return (
     <div
@@ -8,7 +8,7 @@ export default function Add_product_invoice({ findProduct, name, price, quantity
     >
       <form
         onSubmit={(e) => addProduct(e)}
-        className='w-4/12 mx-auto mt-10 p-4 bg-white space-y-3 shadow-lg rounded-lg'
+        className='md:w-4/12 md:mx-auto mx-2 mt-10 p-4 bg-white space-y-3 shadow-lg rounded-lg'
       >
         <h2 className='pb-2 text-lg font-medium border-b'>Product</h2>
         <div className="space-y-1">
@@ -36,6 +36,17 @@ export default function Add_product_invoice({ findProduct, name, price, quantity
             value={quantity}
             type='number'
             onChange={(e) => setQuantity(Number(e.target.value))}
+            autoFocus
+            className={`w-full p-2 rounded-md border ${findProduct?.quantity < quantity ? 'focus:outline-red-500' : 'focus:outline-sky-500'}`}
+          />
+        </div>
+        <div className="space-y-1">
+          <label className="text-sm">Sale Price :</label>
+          <input
+            name='qty'
+            value={salePrice}
+            type='number'
+            onChange={(e) => setSalePrice(Number(e.target.value))}
             autoFocus
             className={`w-full p-2 rounded-md border ${findProduct?.quantity < quantity ? 'focus:outline-red-500' : 'focus:outline-sky-500'}`}
           />

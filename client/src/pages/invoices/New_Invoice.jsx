@@ -22,6 +22,7 @@ const New_Invoice = () => {
     const [name, setName] = useState('')
     const [price, setPrice] = useState('')
     const [quantity, setQuantity] = useState('')
+    const [salePrice, setSalePrice] = useState('')
     const [isSelect, setIsSelect] = useState(false)
     const [scaneSearch, setScaneSearch] = useState('')
     const [findProduct, setFindProduct] = useState({})
@@ -195,7 +196,7 @@ const New_Invoice = () => {
             </div>
 
             <div
-                className='flex justify-between space-x-4'
+                className='flex flex-col md:flex-row justify-between space-y-5 md:space-y-0 md:space-x-4'
             >
                 <Product_list_invoice />
                 <Summary_invoice />
@@ -216,6 +217,8 @@ const New_Invoice = () => {
                     price,
                     quantity,
                     setQuantity,
+                    salePrice,
+                    setSalePrice,
                     addProduct,
                     handleCancel
                 }} />

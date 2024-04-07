@@ -132,13 +132,13 @@ const SidebarAdmin = () => {
                     icon: <RiProductHuntLine size={16} />
                 },
                 {
-                    path: '/admin/category/new',
-                    title: 'Create Category',
+                    path: '/admin/brand/new',
+                    title: 'Create Brand',
                     icon: <RiAddBoxLine size={16} />
                 },
                 {
-                    path: '/admin/categories',
-                    title: 'Categories',
+                    path: '/admin/brands',
+                    title: 'Brands',
                     icon: <BiCategoryAlt size={16} />
                 },
                 {
@@ -202,7 +202,7 @@ const SidebarAdmin = () => {
     const data = user.isAdmin ? adminData : userData
 
     return (
-        <div className='relative h-screen sm:w-2/12 px-2 pb-5 border-r overflow-y-auto'>
+        <div className='relative h-screen hidden md:block sm:w-2/12 px-2 pb-5 border-r overflow-y-auto'>
             <Link
                 to='/'
                 className='flex justify-center items-center w-16 h-16 sm:w-20 sm:h-20 mx-auto my-3 bg-blue-500 text-white rounded-full'>

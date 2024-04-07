@@ -115,8 +115,8 @@ exports.getProducts = async (req, res, next) => {
 
   try {
 
-    const products = await Product.find({user : req.user})
-      .populate('category', 'name')
+    const products = await Product.find()
+      .populate('brand', 'name')
 
     res.status(200).json({
       success: true,
@@ -137,15 +137,12 @@ exports.getProducts = async (req, res, next) => {
 exports.getProductsBySearch = async (req, res, next) => {
 
   try {
-    const keyword = req.query.q
-      ? {
-        $or: [
+    const keyword = {
+      $or: [
           { name: { $regex: req.query.q, $options: "i" } },
           { email: { $regex: req.query.q, $options: "i" } },
-        ],
-        user : req.user
-      }
-      : {user : req.user}
+      ]
+  }
     const products = await Product.find(keyword).limit(5)
 
     res.status(200).json({

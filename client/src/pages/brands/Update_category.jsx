@@ -8,7 +8,7 @@ import baseUrl from '../../utils/baseUrl';
 import handleChange from '../../utils/handleChange';
 import toast_alert from '../../utils/toast_alert';
 
-const Update_category = () => {
+const Update_Brand = () => {
     const {categories} = useUserStore();
     const {id} = useParams()
     const toast = useToast()
@@ -19,7 +19,7 @@ const Update_category = () => {
       e.preventDefault()
       setLoading(true)
       try {
-          const res = await axios.put(`${baseUrl}/api/category/update/${value._id}`,value,{
+          const res = await axios.put(`${baseUrl}/api/brand/update/${value._id}`,value,{
               headers: {
                   authorization : localStorage.getItem('token')
               }
@@ -73,4 +73,4 @@ const Update_category = () => {
     );
 };
 
-export default Update_category;
+export default Update_Brand;

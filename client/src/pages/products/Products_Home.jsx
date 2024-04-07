@@ -45,7 +45,13 @@ const Products_Home = () => {
                                 Name
                             </th>
                             <th scope="col" className="px-6 py-3 text-center">
-                                Category
+                                Brand
+                            </th>
+                            <th scope="col" className="px-6 py-3 text-center">
+                                Model
+                            </th>
+                            <th scope="col" className="px-6 py-3 text-center">
+                                Size
                             </th>
                             <th scope="col" className="px-6 py-3 text-center">
                                 Price
