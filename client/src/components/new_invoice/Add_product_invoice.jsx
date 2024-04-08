@@ -43,11 +43,10 @@ export default function Add_product_invoice({ findProduct, name, price, quantity
         <div className="space-y-1">
           <label className="text-sm">Sale Price :</label>
           <input
-            name='qty'
+            name='salePrice'
             value={salePrice}
             type='number'
             onChange={(e) => setSalePrice(Number(e.target.value))}
-            autoFocus
             className={`w-full p-2 rounded-md border ${findProduct?.quantity < quantity ? 'focus:outline-red-500' : 'focus:outline-sky-500'}`}
           />
         </div>

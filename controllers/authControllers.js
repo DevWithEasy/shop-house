@@ -244,7 +244,7 @@ exports.getAdminDashboardData = async (req, res, next) => {
         $group: {
           _id: null,
           value: {
-            $sum: '$total'
+            $sum: '$sale'
           }
         }
       }
@@ -285,7 +285,7 @@ exports.getAdminDashboardData = async (req, res, next) => {
         $group: {
           _id: null,
           value: {
-            $sum: '$total'
+            $sum: '$sale'
           }
         }
       }

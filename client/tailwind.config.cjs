@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'cardo': ['Cardo', 'sans-serif']
+        'cardo': ["Roboto Mono", 'monospace', 'sans-serif']
       }
     },
   },

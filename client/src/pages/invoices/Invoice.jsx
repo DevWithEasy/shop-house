@@ -41,7 +41,7 @@ const Invoice = () => {
     useEffect(() => {
         getInvoice()
     }, [])
-
+console.log(invoice)
     return (
         <div className='p-2'>
             <Heading>Invoice Details</Heading>
@@ -57,45 +57,28 @@ const Invoice = () => {
 
                         </div>
                         <div className=''>
-                            <p>Demo Pharmacy</p>
+                            <p>Fantasy Shoe Hosue</p>
                             <p>Address Here are</p>
-                            <p><b>Reg No :</b> BSC-2392 </p>
                             <p>
                                 <b>Phone :</b> 01700000000,
-                            </p>
-                            <p>
-                                <b>Email :</b> 01700000000
                             </p>
 
                         </div>
                     </div>
                     <hr className='my-5' />
-                    <div className='flex justify-between items-center px-5'>
-                        <div className='flex space-x-4'>
-                            <p>Bill to : </p>
-                            <div>
-                                <p>
-                                    {invoice?.customer?.name}
-                                </p>
-                                <p>
-                                    {invoice?.customer?.phone}
-                                </p>
-                            </div>
-                        </div>
-                        <div>
-                            <p>
-                                <b>Invoice No : </b>
-                                {invoice?._id}
-                            </p>
-                            <p>
-                                <b>Invoice Date : </b>
-                                {new Date(invoice?.createdAt).toDateString()}
-                            </p>
-                            <p>
-                                <b>Created by : </b>
-                                {invoice?.user?.name}
-                            </p>
-                        </div>
+                    <div>
+                        <p>
+                            <b>Invoice No : </b>
+                            {invoice?._id}
+                        </p>
+                        <p>
+                            <b>Invoice Date : </b>
+                            {new Date(invoice?.createdAt).toDateString()}
+                        </p>
+                        <p>
+                            <b>Created by : </b>
+                            {invoice?.user?.name}
+                        </p>
                     </div>
 
                     <div className='my-5'>
@@ -106,7 +89,7 @@ const Invoice = () => {
                                         <th scope="col" className="px-6 py-3 text-left">
                                             Sl
                                         </th>
-                                        <th scope="col" className="px-6 py-3 text-center">
+                                        <th scope="col" className="px-6 py-3">
                                             Product name
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-center">
@@ -129,17 +112,17 @@ const Invoice = () => {
                                             <td className="px-6 py-3 text-left">
                                                 {i + 1}
                                             </td>
-                                            <td className="px-6 py-3 text-center">
-                                                {product?.name}
+                                            <td className="px-6 py-3">
+                                                {product?.product?.name}
                                             </td>
                                             <td className="px-6 py-3 text-center">
-                                                {product?.price}
+                                                {product?.salePrice}
                                             </td>
                                             <td className="px-6 py-3 text-center">
                                                 {product?.quantity}
                                             </td>
                                             <td className="px-6 py-3 text-right">
-                                                {get_fixed_num(product?.price*product?.quantity)}
+                                                {get_fixed_num(product?.salePrice * product?.quantity)}
                                             </td>
                                         </tr>
                                         )
@@ -152,18 +135,7 @@ const Invoice = () => {
                                             Subtotal
                                         </td>
                                         <td className="px-6 py-3 text-right">
-                                            {invoice?.subTotal}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colSpan='2' className="px-6 py-3 text-center">
-
-                                        </td>
-                                        <td colSpan='2' className="px-6 py-3 text-left border-b">
-                                            Discount
-                                        </td>
-                                        <td className="px-6 py-3 text-right border-b">
-                                            {invoice?.discount}
+                                            {invoice?.sale}
                                         </td>
                                     </tr>
                                     <tr>
@@ -174,7 +146,7 @@ const Invoice = () => {
                                             Total Paid
                                         </td>
                                         <td className="px-6 py-3 text-right">
-                                            {invoice?.total}
+                                            {invoice?.sale}
                                         </td>
                                     </tr>
                                 </tbody>

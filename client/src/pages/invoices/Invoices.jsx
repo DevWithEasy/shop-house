@@ -43,8 +43,14 @@ const Invoices = () => {
                 <table className="w-full text-sm text-left text-gray-500">
                     <thead className="text-xs text-gray-700 uppercase bg-blue-50">
                         <tr>
-                            <th scope="col" className="px-6 py-3 text-center">
+                            <th scope="col" className="px-6 py-3">
                                 Id
+                            </th>
+                            <th scope="col" className="px-6 py-3">
+                                Created By
+                            </th>
+                            <th scope="col" className="px-6 py-3 text-center">
+                                Products
                             </th>
                             <th scope="col" className="px-6 py-3 text-center">
                                 Buy Price
@@ -64,14 +70,20 @@ const Invoices = () => {
                                     key={invoice._id}
                                     className='bg-white cursor-pointer border-b'
                                 >
-                                    <td className="px-6 py-3 text-center">
+                                    <td className="px-6 py-3 ">
                                         {invoice?._id}
                                     </td>
-                                    <td className="px-6 py-3 text-center">
-                                        {invoice?.buyPrice}
+                                    <td className="px-6 py-3">
+                                        {invoice?.user?.name}
                                     </td>
                                     <td className="px-6 py-3 text-center">
-                                        {invoice?.salePrice}
+                                        {invoice?.products?.length}
+                                    </td>
+                                    <td className="px-6 py-3 text-center">
+                                        {invoice?.buy}
+                                    </td>
+                                    <td className="px-6 py-3 text-center">
+                                        {invoice?.sale}
                                         
                                     </td>
                                     <td className="px-6 py-3 text-center space-x-2">

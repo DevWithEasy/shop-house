@@ -26,14 +26,10 @@ const Purchase = () => {
 
                 </div>
                 <div className=''>
-                    <p>Demo Pharmacy</p>
+                    <p>Fantasy Shoe House</p>
                     <p>Address Here are</p>
-                    <p><b>Reg No :</b> BSC-2392 </p>
                     <p>
                         <b>Phone :</b> 01700000000,
-                    </p>
-                    <p> 
-                        <b>Email :</b> 01700000000 
                     </p>
 
                 </div>

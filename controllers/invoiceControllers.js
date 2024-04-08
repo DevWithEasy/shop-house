@@ -4,58 +4,32 @@ const Product = require('../models/Product');
 exports.createInvoice = async (req, res, next) => {
 
   try {
+    
+    const new_invoice = new Invoice({
+      user: req.user,
+      buy: req.body.buy,
+      sale: req.body.sale,
+      products: req.body.products
+    })
 
-    const create_new_invoice = async (customer) => {
-      let products = []
+    const invoice = await new_invoice.save()
 
-      req.body.cart.forEach(product => {
-        products.push({
-          product: product._id,
-          price: product.price,
-          quantity: product.quantity
-        })
-      })
-
-      const new_invoice = new Invoice({
-        total: req.body.total,
-        discount: req.body.discount,
-        subTotal: req.body.subTotal,
-        user: req.user,
-        products
-      })
-
-      const invoice = await new_invoice.save()
-
-      invoice.products.forEach(async (item) => {
+    if (invoice) {
+      req.body.products.forEach(async (item) => {
         await Product.findByIdAndUpdate(item.product, {
           $inc: {
             quantity: - item.quantity
           }
         })
       })
-
-      res.status(200).json({
-        success: true,
-        status: 200,
-        message: 'Invoice successfully created',
-        data: {}
-      })
     }
 
-    if (!findCustomer) {
-      const new_customer = new Customer({
-        name: req.body.name,
-        phone: req.body.phone
-      })
-      const customer = await new_customer.save()
-
-      create_new_invoice(customer)
-
-    } else {
-
-      create_new_invoice(findCustomer)
-
-    }
+    res.status(200).json({
+      success: true,
+      status: 200,
+      message: 'Invoice successfully created',
+      data: {}
+    })
 
   } catch (err) {
     res.status(500).json({
@@ -69,7 +43,7 @@ exports.createInvoice = async (req, res, next) => {
 exports.getInvoices = async (req, res, next) => {
 
   try {
-    const invoices = await Invoice.find({user : req.user}).populate('customer', '-_id name phone')
+    const invoices = await Invoice.find().populate('user', '_id name phone')
     res.status(200).json({
       success: true,
       status: 200,
@@ -89,28 +63,14 @@ exports.getInvoice = async (req, res, next) => {
 
   try {
     const invoice = await Invoice.findById(req.params.id)
-      .populate('customer', '-_id name phone')
       .populate('user', '-_id name')
-
-    const products = []
-
-    for (const item of invoice.products) {
-      const product = await Product.findById(item.product, '-generic -company -createdAt -updatedAt')
-      products.push({
-        ...product._doc,
-        price: item.price,
-        quantity: item.quantity
-      })
-    }
+      .populate('products.product')
 
     res.status(200).json({
       success: true,
       status: 200,
       message: 'Invoice retrieved successfully',
-      data: {
-        ...invoice._doc,
-        products
-      }
+      data: invoice
     })
   } catch (err) {
     res.status(500).json({

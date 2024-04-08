@@ -50,6 +50,9 @@ const Purchases = () => {
                                 ID
                             </th>
                             <th scope="col" className="px-6 py-3 text-center">
+                                Products
+                            </th>
+                            <th scope="col" className="px-6 py-3 text-center">
                                 Total Value
                             </th>
                             <th scope="col" className="px-6 py-3 text-center">
@@ -66,6 +69,9 @@ const Purchases = () => {
                                 >
                                     <td className="px-6 py-3 text-left">
                                         {purchase?._id}
+                                    </td>
+                                    <td className="px-6 py-3 text-center">
+                                        {purchase?.products?.length}
                                     </td>
                                     <td className="px-6 py-3 text-center">
                                         {purchase?.total}

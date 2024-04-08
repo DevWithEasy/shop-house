@@ -120,7 +120,7 @@ const New_Invoice = () => {
     const addProduct = (e) => {
         e.preventDefault()
 
-        if (!quantity) return
+        if (!quantity || !salePrice) return
 
         if (findProduct.quantity < quantity) {
             return toast({
@@ -139,11 +139,12 @@ const New_Invoice = () => {
                 isClosable: true,
             })
         } else {
-            addCart({ _id, name, price, quantity })
+            addCart({ _id, name, price, quantity,salePrice })
             set_id('')
             setName('')
             setPrice('')
             setQuantity('')
+            setSalePrice('')
             setIsAdd(!isAdd)
             setSearch('')
             if (searchRef.current) {
@@ -162,10 +163,12 @@ const New_Invoice = () => {
             setQuantity('')
             setIsAdd(!isAdd)
             setScaneSearch('')
+            setSalePrice('')
+            setSearch('')
         }
     }
 
-
+    
     return (
         <div
             className='relative h-screen p-2'

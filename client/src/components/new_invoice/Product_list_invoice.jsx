@@ -12,17 +12,20 @@ const Product_list_invoice = () => {
                     <th scope="col" className="px-2 py-2 text-center">
                         Sl
                     </th>
-                    <th scope="col" className="px-6 py-2 text-center">
+                    <th scope="col" className="px-6 py-2">
                         Name
                     </th>
                     <th scope="col" className="p-2 text-center">
                         Price
                     </th>
+                    <th scope="col" className="p-2 text-center">
+                        Sale
+                    </th>
                     <th scope="col" className="px-6 py-2 text-center">
                         Quantity
                     </th>
-                    <th scope="col" className="px-6 py-2 text-center">
-                        Total Price
+                    <th scope="col" className="p-2 text-center">
+                        Toatl
                     </th>
                     <th scope="col" className="p-2 text-center">
                         Action
@@ -44,17 +47,20 @@ const Product_list_invoice = () => {
                         <td className='p-2 text-center'>
                             {product?.price}
                         </td>
+                        <td className='p-2 text-center'>
+                            {product?.salePrice}
+                        </td>
                         <td className='px-6 py-2 text-center'>
                             <input
                                 name={product._id}
                                 type='number'
                                 value={product?.quantity}
                                 onChange={(e) => adjustQuantity(product._id,e.target.value)}
-                                className='p-1 border text-center focus:outline-none focus:border-sky-500 rounded-md'
+                                className='w-16 p-1 border text-center focus:outline-none focus:border-sky-500 rounded-md'
                             />
                         </td>
-                        <td className='px-6 py-2 text-center'>
-                            {product?.price * product?.quantity}
+                        <td className='p-2 text-center'>
+                            {product?.salePrice * product.quantity}
                         </td>
                         <td className='p-2 text-center flex justify-center  text-red-500'>
                             <RxCross2

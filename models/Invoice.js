@@ -5,16 +5,32 @@ const invoiceSchema = new mongoose.Schema({
         type : mongoose.Types.ObjectId,
         ref : 'User'
     },
-    buyPrice : {
+    buy : {
         type : Number,
         required : true
     },
-    salePrice : {
+    sale : {
         type : Number,
         required : true
     },
     products : {
-        type : Array,
+        type : [
+            {
+                product : {
+                    type : mongoose.Types.ObjectId,
+                    ref : 'Product'
+                },
+                quantity : {
+                    type : Number,
+                },
+                buyPrice : {
+                    type : Number,
+                },
+                salePrice : {
+                    type : Number,
+                }
+            }
+        ],
         required : true
     },
     
