@@ -10,7 +10,6 @@ const path = require('path')
 
 //serve client side file path
 app.use(express.static(path.join(__dirname,'public')))
-app.use(express.static(path.join(__dirname, './client/dist')));
 
 //all middleware apply
 applyMiddleware(app)
@@ -20,10 +19,6 @@ dbConnection()
 
 //all routes enable
 applyRoutes(app)
-
-app.get('*',(req,res)=>{
-    res.sendFile(path.join(__dirname, './client/dist/index.html'))
-})
 
 //task
 sheduleTask()
