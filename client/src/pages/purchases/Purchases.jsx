@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { MdDelete, MdEditSquare, MdInfo, MdInfoOutline } from 'react-icons/md';
+import { MdDelete, MdEditSquare, MdInfoOutline } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import Delete_data from '../../components/Delete_data';
 import Heading from '../../components/Heading';
@@ -50,9 +50,6 @@ const Purchases = () => {
                                 ID
                             </th>
                             <th scope="col" className="px-6 py-3 text-center">
-                                Purchase by
-                            </th>
-                            <th scope="col" className="px-6 py-3 text-center">
                                 Total Value
                             </th>
                             <th scope="col" className="px-6 py-3 text-center">
@@ -67,9 +64,12 @@ const Purchases = () => {
                                     key={purchase._id}
                                     className='bg-white border-b cursor-pointer'
                                 >
-                                    <td className="px-6 py-3 text-left">{purchase?._id}</td>
-                                    <td className="px-6 py-3 text-center">{purchase?.user?.name}</td>
-                                    <td className="px-6 py-3 text-center">{purchase?.total}</td>
+                                    <td className="px-6 py-3 text-left">
+                                        {purchase?._id}
+                                    </td>
+                                    <td className="px-6 py-3 text-center">
+                                        {purchase?.total}
+                                    </td>
                                     <td className="px-6 py-3 text-center space-x-2">
                                         <button
                                             onClick={() => {

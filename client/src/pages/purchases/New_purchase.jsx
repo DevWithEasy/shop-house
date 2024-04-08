@@ -181,8 +181,8 @@ const New_purchase = () => {
     return (
         <div className='p-2'>
             <Heading>Create new purchase</Heading>
-            <div className='flex justify-between space-x-2'>
-                <div className='w-4/12 h-68 bg-white p-2 rounded-md'>
+            <div className='flex flex-col md:flex-row justify-between space-y-5 md:space-y-0 md:space-x-2'>
+                <div className='md:w-4/12 h-68 bg-white p-2 rounded-md'>
                     <div
                         className=''
                     >
@@ -196,7 +196,7 @@ const New_purchase = () => {
                             value={search}
                             onChange={(e) => handleSearch(e.target.value)}
                             autoFocus
-                            className='w-full p-2 mb-2 border rounded-md focus:outline-none focus:ring-2 ring-sky-500 placeholder:text-sm'
+                            className='w-full p-2 mb-2 border rounded-md focus:outline-sky-500 placeholder:text-sm'
                             placeholder='find by product name'
                         />
 
@@ -330,7 +330,7 @@ const New_purchase = () => {
                         </div>
                     }
                 </div>
-                <div className='w-8/12 space-y-2 bg-white p-2 rounded-md'>
+                <div className='md:w-8/12 space-y-2 bg-white p-2 rounded-md'>
                     <div className="relative overflow-x-auto space-y-3">
                         <table className="w-full text-sm text-left text-gray-500">
                             <thead className="text-xs text-gray-700 uppercase bg-blue-50">
@@ -380,7 +380,6 @@ const New_purchase = () => {
                     </div>
 
                 </div>
-
             </div>
         </div>
     );

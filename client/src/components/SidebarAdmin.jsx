@@ -14,90 +14,7 @@ import useUserStore from '../store/userStore';
 const SidebarAdmin = () => {
     const { user } = useUserStore();
 
-    const userData = [
-        {
-            title: 'Main',
-            links: [
-                {
-                    path: '/admin/user',
-                    title: 'Welcome',
-                    icon: <MdAutoAwesomeMosaic size={16} />
-                },
-                {
-                    path: '/',
-                    title: 'Home',
-                    icon: <AiOutlineHome size={16} />
-                },
-                {
-                    path: '/admin/user/dashboard',
-                    title: 'Dashboard',
-                    icon: <RxDashboard size={16} />
-                }
-            ]
-        },
-        {
-            title: 'Product',
-            links: [
-                {
-                    path: '/admin/product/new',
-                    title: 'Create Product',
-                    icon: <RiAddBoxLine size={16} />
-                },
-                {
-                    path: '/admin/products',
-                    title: 'Products',
-                    icon: <RiProductHuntLine size={16} />
-                },
-                {
-                    path: '/admin/categories',
-                    title: 'Categories',
-                    icon: <BiCategoryAlt size={16} />
-                },
-                {
-                    path: '/admin/printbarcode',
-                    title: 'Print Barcode',
-                    icon: <PiBarcode size={16} />
-                },
-            ]
-        },
-        {
-            title: 'Purchases & sales',
-            links: [
-                {
-                    path: '/admin/purchase/new',
-                    title: 'Create Purchase',
-                    icon: <RiAddBoxLine size={16} />
-                },
-                {
-                    path: '/admin/purchases',
-                    title: 'Purchases',
-                    icon: <BiPurchaseTag size={16} />
-                },
-                {
-                    path: '/admin/invoices',
-                    title: 'Invoices',
-                    icon: <LiaFileInvoiceSolid size={16} />
-                },
-            ]
-        },
-        {
-            title: 'Report',
-            links: [
-                {
-                    path: '/admin/report/new',
-                    title: 'Create Report',
-                    icon: <RiAddBoxLine size={16} />
-                },
-                {
-                    path: '/admin/reports',
-                    title: 'Reports',
-                    icon: <TbReportSearch size={16} />
-                }
-            ]
-        }
-    ]
-
-    const adminData = [
+    const data = [
         {
             title: 'Main',
             links: [
@@ -199,7 +116,6 @@ const SidebarAdmin = () => {
             ]
         }
     ]
-    const data = user.isAdmin ? adminData : userData
 
     return (
         <div className='relative h-screen hidden md:block sm:w-2/12 px-2 pb-5 border-r overflow-y-auto'>

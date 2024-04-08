@@ -74,7 +74,7 @@ const Update_product = () => {
             <Heading>Update Product</Heading>
             <form
                 onSubmit={(e) => updateProduct(e)}
-                className="w-1/2 mx-auto p-4 space-y-2 bg-white rounded shadow"
+                className="md:w-1/2 mx-auto p-4 space-y-2 bg-white rounded shadow"
             >
                 <div className='w-full space-y-2'>
                     <label htmlFor="">Name :</label>

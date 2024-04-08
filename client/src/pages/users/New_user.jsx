@@ -60,7 +60,7 @@ const New_user = () => {
             <Heading>Add new user (Shop)</Heading>
             <form
                 onSubmit={(e) => createUser(e)}
-                className='w-1/2 mx-auto space-y-2 p-4 bg-white rounded shadow'
+                className='md:w-1/2 mx-auto space-y-2 p-4 bg-white rounded shadow'
             >
                 <div className='space-y-2'>
                     <label htmlFor="">Name :</label>

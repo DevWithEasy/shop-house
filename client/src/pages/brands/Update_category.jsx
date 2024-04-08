@@ -49,7 +49,7 @@ const Update_Brand = () => {
           <Heading>Update company</Heading>
           <form 
             onSubmit={(e)=>updateCategory(e)}
-            className='w-1/2 mx-auto space-y-2 p-4 bg-white rounded shadow'
+            className='md:w-1/2 mx-auto space-y-2 p-4 bg-white rounded shadow'
           >
             <div className='space-y-2'>
                   <label htmlFor="">Category Name :</label>

@@ -1,34 +1,32 @@
 import { useRoutes } from 'react-router-dom'
-import Home from './pages/Home'
-import Layout from './pages/Layout'
-import Signin from './pages/Signin'
-import Signup from './pages/Signup'
-import New_purchase from './pages/purchases/New_purchase'
-import Purchase from './pages/purchases/Purchase'
-import New_report from './pages/reports/New_report'
-import Reports from './pages/reports/Reports'
-import Invoice from './pages/invoices/Invoice'
-import Invoices from './pages/invoices/Invoices'
-import New_product from './pages/products/New_product'
-import Products from './pages/products/Products'
-import Update_product from './pages/products/Update_product'
-import New_user from './pages/users/New_user'
-import Update_user from './pages/users/Update_user'
-import Purchases from './pages/purchases/Purchases'
-import Protected from './pages/Protected'
-import LayoutAdmin from './pages/LayoutAdmin'
-import PrintBarCode from './pages/products/PrintBarCode'
-import New_Invoice from './pages/invoices/New_Invoice'
-import Products_Home from './pages/products/Products_Home'
-import Update_invoice from './pages/invoices/Update_invoice'
-import UserDashboard from './pages/Dashboard_User'
-import Admin_User from './pages/Admin_User'
 import Admin_Administration from './pages/Admin_Administration'
 import AdminDashboard from './pages/Dashboard_Admin'
-import Users from './pages/users/Users'
-import New_Brand from './pages/brands/New_brand'
+import Home from './pages/Home'
+import Layout from './pages/Layout'
+import LayoutAdmin from './pages/LayoutAdmin'
+import Protected from './pages/Protected'
+import Signin from './pages/Signin'
+import Signup from './pages/Signup'
 import Brands from './pages/brands/Brands'
+import New_Brand from './pages/brands/New_brand'
 import Update_Brand from './pages/brands/Update_category'
+import Invoice from './pages/invoices/Invoice'
+import Invoices from './pages/invoices/Invoices'
+import New_Invoice from './pages/invoices/New_Invoice'
+import Update_invoice from './pages/invoices/Update_invoice'
+import New_product from './pages/products/New_product'
+import PrintBarCode from './pages/products/PrintBarCode'
+import Products from './pages/products/Products'
+import Products_Home from './pages/products/Products_Home'
+import Update_product from './pages/products/Update_product'
+import New_purchase from './pages/purchases/New_purchase'
+import Purchase from './pages/purchases/Purchase'
+import Purchases from './pages/purchases/Purchases'
+import New_report from './pages/reports/New_report'
+import Reports from './pages/reports/Reports'
+import New_user from './pages/users/New_user'
+import Update_user from './pages/users/Update_user'
+import Users from './pages/users/Users'
 
 function App() {
   const routes= useRoutes([
@@ -76,26 +74,10 @@ function App() {
     </Protected>
     },
     {
-      path : '/admin/user/',
-      element : <Protected>
-      <LayoutAdmin>
-        <Admin_User/>
-      </LayoutAdmin>
-    </Protected>
-    },
-    {
       path : '/admin/administration',
       element : <Protected>
       <LayoutAdmin>
         <Admin_Administration/>
-      </LayoutAdmin>
-    </Protected>
-    },
-    {
-      path : '/admin/user/dashboard',
-      element : <Protected>
-      <LayoutAdmin>
-        <UserDashboard/>
       </LayoutAdmin>
     </Protected>
     },

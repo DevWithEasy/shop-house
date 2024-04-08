@@ -2,16 +2,12 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { AiOutlineBarChart } from 'react-icons/ai';
 import { BiCategoryAlt } from "react-icons/bi";
-import { CiShop } from "react-icons/ci";
-import { FaUsers } from "react-icons/fa6";
-import { HiUsers } from "react-icons/hi2";
 import { MdOutlineSell } from 'react-icons/md';
 import { TbMoneybag } from 'react-icons/tb';
 import Heading from '../components/Heading';
+import Dashboard_Info from '../components/dashboard/Dashboard_Info';
 import Dashboard_skeleton from '../components/dashboard/Dashboard_skeleton';
 import baseUrl from '../utils/baseUrl';
-import Dashboard_Info from '../components/dashboard/Dashboard_Info';
-import Report_admin_outlet from '../components/reports_chart/Report_admin_outlet';
 
 const AdminDashboard = () => {
     const [loading, setLoading] = useState(false)
@@ -34,32 +30,20 @@ const AdminDashboard = () => {
         }
     }
 
-    const { employees, categories, customers, outlets, current_month, product, total } = data
+    const { totalProducts,brands, current_month, product, total } = data
 
     const infos = [
         {
-            title: 'Total Employee',
-            value: employees,
-            color: 'pink',
-            children: <FaUsers size={25} className='shrink-0 text-pink-500' />
-        },
-        {
-            title: 'Total Customers',
-            value: customers,
-            color: 'green',
-            children: <HiUsers size={25} className='shrink-0 text-green-500' />
-        },
-        {
-            title: 'Total Category',
-            value: categories,
+            title: 'Total Brands',
+            value: brands,
             color: 'blue',
             children: <BiCategoryAlt size={25} className='shrink-0 text-blue-500' />
         },
         {
-            title: 'Total Outlets',
-            value: outlets && outlets.length,
-            color: 'yellow',
-            children: <CiShop size={25} className='shrink-0 text-yellow-500' />
+            title: 'Total Products',
+            value: totalProducts,
+            color: 'blue',
+            children: <BiCategoryAlt size={25} className='shrink-0 text-blue-500' />
         },
         {
             title: 'Total Purchase(Month)',
@@ -105,7 +89,7 @@ const AdminDashboard = () => {
                 <div className='p-2'>
                     <Heading>Admin Dashboard</Heading>
                     <div
-                        className='grid grid-cols-4 gap-4'
+                        className='grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4'
                     >
                         {
                             infos.map((info, i) =>
@@ -122,11 +106,6 @@ const AdminDashboard = () => {
                             )
                         }
                     </div>
-                    {data.outlets &&
-                        <Report_admin_outlet {...{
-                            outlets : data.outlets
-                        }}/>
-                    }
                 </div>
             }
         </>

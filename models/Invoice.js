@@ -5,15 +5,11 @@ const invoiceSchema = new mongoose.Schema({
         type : mongoose.Types.ObjectId,
         ref : 'User'
     },
-    total : {
+    buyPrice : {
         type : Number,
         required : true
     },
-    discount : {
-        type : Number,
-        required : true
-    },
-    subTotal : {
+    salePrice : {
         type : Number,
         required : true
     },

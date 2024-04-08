@@ -90,10 +90,10 @@ const New_report = () => {
         >
             <Heading>Report Generate</Heading>
             <div
-                className='flex justify-between gap-x-4'
+                className='flex flex-col md:flex-row justify-between space-y-4 md:space-y-0 md:space-x-4'
             >
                 <div
-                    className='w-4/12 bg-white border rounded'
+                    className='md:w-4/12 bg-white border rounded'
                 >
                     <p
                         className='p-2 text-lg font-medium border-b'
@@ -114,7 +114,7 @@ const New_report = () => {
                                 name='reportType'
                                 value={value?.reportType}
                                 onChange={(e) => handleChange(e, value, setValue)}
-                                className='w-full p-2 border rounded-md border-gray-300 focus:outline-none focus:border-sky-500'
+                                className='w-full p-2 border rounded-md border-gray-300 focus:outline-sky-500'
                             >
                                 <option value='daily'>Daily</option>
                                 <option value='Monthly'>Monthly</option>
@@ -131,7 +131,7 @@ const New_report = () => {
                                 name='start'
                                 value={value?.start}
                                 onChange={(e) => handleChange(e, value, setValue)}
-                                className='w-full p-2 border rounded-md border-gray-300 focus:outline-none focus:border-sky-500'
+                                className='w-full p-2 border rounded-md border-gray-300 focus:outline-sky-500'
                             />
                         </div>
                         <div
@@ -145,7 +145,7 @@ const New_report = () => {
                                 name='end'
                                 value={value?.end}
                                 onChange={(e) => handleChange(e, value, setValue)}
-                                className='w-full p-2 border rounded-md border-gray-300 focus:outline-none focus:border-sky-500'
+                                className='w-full p-2 border rounded-md border-gray-300 focus:outline-sky-500'
                             />
                         </div>
                         <button
@@ -157,9 +157,8 @@ const New_report = () => {
                     </form>
                 </div>
 
-
                 <div
-                    className='w-8/12 bg-white border rounded'
+                    className='md:w-8/12 bg-white border rounded'
                 >
                     <p
                         className='p-2 text-lg font-medium border-b'

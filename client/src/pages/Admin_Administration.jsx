@@ -12,7 +12,7 @@ import { Link, NavLink } from 'react-router-dom';
 import Heading from '../components/Heading';
 
 const Admin_Administration = () => {
-    const adminData = [
+    const data = [
         {
             title: 'Main',
             links: [
@@ -47,13 +47,13 @@ const Admin_Administration = () => {
                     icon: <RiProductHuntLine size={16} />
                 },
                 {
-                    path: '/admin/category/new',
-                    title: 'Create Category',
+                    path: '/admin/brand/new',
+                    title: 'Create Brand',
                     icon: <RiAddBoxLine size={16} />
                 },
                 {
-                    path: '/admin/categories',
-                    title: 'Categories',
+                    path: '/admin/brands',
+                    title: 'Brands',
                     icon: <BiCategoryAlt size={16} />
                 },
                 {
@@ -123,7 +123,7 @@ const Admin_Administration = () => {
                 className='grid md:grid-cols-3 gap-4'
             >
                 {
-                    adminData.map((d, i) =>
+                    data.map((d, i) =>
                         <div
                             key={i}
                             className='bg-white border rounded'

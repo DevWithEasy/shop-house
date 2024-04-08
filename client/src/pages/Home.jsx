@@ -40,7 +40,7 @@ const Home = () => {
                 <hr />
             </div>
             <div
-                className="bg-white border rounded text-sm"
+                className="w-full md:w-4/12 bg-white border rounded text-sm"
             >
                 <p
                     className="p-2 border-b"
@@ -73,7 +73,7 @@ const Home = () => {
                     </table>
                 </div>
             </div>
-            <div className='w-full flex flex-col items-center justify-center space-y-2 mt-5'>
+            <div className='w-full md:hidden flex flex-col items-center justify-center space-y-2 mt-5'>
                 {
                     data.map((d, i) => <NavLink
                         key={i}

@@ -4,11 +4,8 @@ import {
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import Heading from '../../../../../../../React/FullStack_MERN/pos-app-supershop/client/src/components/Heading';
-import useUserStore from '../../../../../../../React/FullStack_MERN/pos-app-supershop/client/src/store/userStore';
-import baseUrl from '../../../../../../../React/FullStack_MERN/pos-app-supershop/client/src/utils/baseUrl';
-import handleChange from '../../../../../../../React/FullStack_MERN/pos-app-supershop/client/src/utils/handleChange';
-import toast_alert from '../../../../../../../React/FullStack_MERN/pos-app-supershop/client/src/utils/toast_alert';
+import useUserStore from '../../store/userStore';
+import Heading from '../../components/Heading';
 
 const Update_user = () => {
     const {users} = useUserStore();
@@ -63,30 +60,20 @@ const Update_user = () => {
             console.log(error)
         }
     }
-
+    console.log(users)
     return (
         <div className='p-2'>
             <Heading>Update user</Heading>
             <form
                 onSubmit={(e)=>updateUser(e)}
-                className='w-1/2 mx-auto space-y-2 p-4 bg-white rounded shadow'
+                className='md:w-1/2 mx-auto space-y-2 p-4 bg-white rounded shadow'
             >
             <div className='space-y-2'>
                     <label htmlFor="">Name :</label>
                     <input 
                         type='text' 
                         name='name'
-                        value={value.name}
-                        onChange={(e)=>handleChange(e,value,setValue)} 
-                        className='w-full p-2 rounded-md border border-gray-300 focus:outline-sky-500'
-                    />
-                </div>
-                <div className='space-y-2'>
-                    <label htmlFor="">Email address :</label>
-                    <input 
-                        type='text' 
-                        name='email'
-                        value={value.email}
+                        value={value?.name}
                         onChange={(e)=>handleChange(e,value,setValue)} 
                         className='w-full p-2 rounded-md border border-gray-300 focus:outline-sky-500'
                     />
@@ -96,7 +83,7 @@ const Update_user = () => {
                     <input 
                         type='text' 
                         name='phone'
-                        value={value.phone}
+                        value={value?.phone}
                         onChange={(e)=>handleChange(e,value,setValue)} 
                         className='w-full p-2 rounded-md border border-gray-300 focus:outline-sky-500'
                     />
@@ -113,7 +100,7 @@ const Update_user = () => {
                     <label htmlFor="">User Type :</label>
                     <select
                         name='isAdmin'
-                        value={value.isAdmin}
+                        value={value?.isAdmin}
                         onChange={(e)=>handleChange(e,value,setValue)} 
                         className='w-full p-2 rounded-md border border-gray-300 focus:border-blue-200'
                     >

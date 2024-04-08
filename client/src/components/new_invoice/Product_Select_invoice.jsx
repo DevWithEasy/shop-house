@@ -11,7 +11,7 @@ const Product_Select_invoice = ({find, selectRef, setProduct }) => {
     
     return (
         <div
-            className='absolute right-0 top-2 w-1/2 bg-white'
+            className='absolute right-2 md:right-0 top-2 w-1/2 bg-white'
         >
             <Select
                 ref={selectRef}

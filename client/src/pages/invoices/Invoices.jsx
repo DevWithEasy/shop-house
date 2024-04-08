@@ -44,22 +44,13 @@ const Invoices = () => {
                     <thead className="text-xs text-gray-700 uppercase bg-blue-50">
                         <tr>
                             <th scope="col" className="px-6 py-3 text-center">
-                                Invoice Id
+                                Id
                             </th>
                             <th scope="col" className="px-6 py-3 text-center">
-                                Customer name
+                                Buy Price
                             </th>
                             <th scope="col" className="px-6 py-3 text-center">
-                                Customer Number
-                            </th>
-                            <th scope="col" className="px-6 py-3 text-center">
-                                Subtotal
-                            </th>
-                            <th scope="col" className="px-6 py-3 text-center">
-                                Discount
-                            </th>
-                            <th scope="col" className="px-6 py-3 text-center">
-                                Total
+                                Sele Price
                             </th>
                             <th scope="col" className="px-6 py-3 text-center">
                                 Action
@@ -77,19 +68,11 @@ const Invoices = () => {
                                         {invoice?._id}
                                     </td>
                                     <td className="px-6 py-3 text-center">
-                                        {invoice?.customer?.name}
+                                        {invoice?.buyPrice}
                                     </td>
                                     <td className="px-6 py-3 text-center">
-                                        {invoice?.customer?.phone}
-                                    </td>
-                                    <td className="px-6 py-3 text-center">
-                                        {invoice?.subTotal}
-                                    </td>
-                                    <td className="px-6 py-3 text-center">
-                                        {invoice?.discount}
-                                    </td>
-                                    <td className="px-6 py-3 text-center">
-                                        {invoice?.total}
+                                        {invoice?.salePrice}
+                                        
                                     </td>
                                     <td className="px-6 py-3 text-center space-x-2">
                                         <button

@@ -10,7 +10,6 @@ import baseUrl from '../../utils/baseUrl';
 import handleChange from '../../utils/handleChange';
 import toast_alert from '../../utils/toast_alert';
 import useUserStore from '../../store/userStore';
-import Admin_Warning from '../../components/Admin_Warning';
 
 const New_product = () => {
     const { user } = useUserStore()
@@ -82,7 +81,7 @@ const New_product = () => {
             <Heading> Create new product </Heading>
             <form
                 onSubmit={(e) => createProduct(e)}
-                className='w-1/2 mx-auto space-y-3 p-4 bg-white rounded shadow'
+                className='md:w-1/2 mx-auto space-y-3 p-4 bg-white rounded shadow'
             >
                 <div className='space-y-2'>
                     <div className='space-y-2'>
@@ -160,7 +159,6 @@ const New_product = () => {
                 </button>
                 <Loading_request {...{ loading, setLoading }} />
             </form>
-            {!user?.isAdmin && <Admin_Warning />}
         </div>
     );
 };
